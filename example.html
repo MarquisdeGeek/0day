@@ -1,0 +1,22 @@
+<script src="//sgxengine.com/code/lib/js/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="//sgxengine.com/code/lib/js/qpromise/q.js" type="text/javascript"></script>
+
+<script src="//sgxengine.com/code/sgx/lib/rest-1.00.js"/></script>
+
+<div id="question">Requesting the closest station to the prime meridian...</div>
+<div id="answer"></div>
+
+<script  type="text/javascript">
+
+// Usage:
+//http://marquisdegeek.com/api/tube/?sortby=distance&sortorder=asc&distance=1000&longitude=0&limit=1
+
+var api = new sgx.lib.rest("http://marquisdegeek.com/api/tube/");
+var params = {sortby:'distance', distance:1000, longitude:0, limit:1};
+
+api.getRequest(params).then(function(e) {
+	$('#answer').html(JSON.stringify(e[0]));
+});
+
+</script>
+
