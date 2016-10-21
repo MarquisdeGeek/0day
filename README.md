@@ -43,18 +43,44 @@ Example Usage:
 
  Find the most easterly stations:
 ```
-    http://localhost/self/code/html5/0api/index.php?sortby=longitude&sortorder=desc
+    http://marquisdegeek.com/api/tube/?sortby=longitude&sortorder=desc
 ```
  Or north-most station in zone 1
 ```
-    http://localhost/self/code/html5/0api/index.php?sortby=latitude&sortorder=desc&zone=1
+    http://marquisdegeek.com/api/tube/?sortby=latitude&sortorder=desc&zone=1
 ```
  Or the closest to the meridan, sorted by distance
 ```
-    http://localhost/self/code/html5/0api/index.php?long=0&lat=51.50&distance=1000&sortby=distance
+    http://marquisdegeek.com/api/tube/?long=0&lat=51.50&distance=1000&sortby=distance
 ```
  Or the closest to the meridian, ignoring the latitude
 ```
-    http://localhost/self/code/html5/0api/index.php?long=0&distance=1000&sortby=distance
+    http://marquisdegeek.com/api/tube/?long=0&distance=1000&sortby=distance
 ```
+
+### Country name to ISO2 API
+
+I have published a version at http://marquisdegeek.com/api/country/
+
+The available parameters are:
+
+```
+    name           : Country name
+    closest        : If provided, return names that match within a Levenshtein distance of N. If not provided, it must match exactly
+```
+
+Example Usage:
+
+ Find the ISO2 code for Germany:
+```
+    http://marquisdegeek.com/api/country/?name=Germany
+```
+
+ Find the ISO2 code for Germny (or its mispelling):
+```
+    http://marquisdegeek.com/api/country/?name=Germny&closest
+```
+
+Note: This was created for TADHack 2016 and is, therefore, a hack!
+
 
